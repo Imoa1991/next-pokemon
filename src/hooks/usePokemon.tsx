@@ -1,4 +1,3 @@
-"use client";
 import { useReducer, useEffect } from "react";
 import {
   Pokemon,

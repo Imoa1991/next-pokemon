@@ -13,6 +13,7 @@ export default function PokemonDetailPage() {
     if (name) {
       getDetails(name as string);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
   const details = state.pokemonDetails[name as string];

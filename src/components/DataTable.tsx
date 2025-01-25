@@ -1,4 +1,3 @@
-"use client";
 import {
   flexRender,
   getCoreRowModel,
@@ -18,7 +17,7 @@ import { ChevronsUpDown } from "lucide-react";
 import { DataTableProps } from "@/types";
 import { useRouter } from "next/navigation";
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends { name: string }, TValue>({
   columns,
   data,
   onSort,

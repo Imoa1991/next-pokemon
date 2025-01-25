@@ -1,4 +1,3 @@
-"use client";
 import { DataTable } from "@/components/DataTable";
 import SearchBar from "@/components/SearchBar";
 import { usePokemon } from "@/hooks/usePokemon";
@@ -24,14 +23,6 @@ export default function PokemonList() {
         className="mb-6 w-full max-w-xl"
       />
       <DataTable columns={columns} data={filteredPokemon} />
-
-      {/* <Pagination
-          totalPages={8}
-          currentPage={currentPage}
-          onCurrentPage={onCurrentPage}
-          onPageSize={onPageSize}
-          pageSize={pageSize}
-        /> */}
     </div>
   );
 }
