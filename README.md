@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon App
 
-## Getting Started
+Web application developed with **Next.js 15** and **React 18** to display detailed information about Pokémon. It uses **PokéAPI** to fetch Pokémon data with **Axios**, displaying details such as name, abilities, moves, and more.
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This app allows users to search, view, and explore information about Pokémon. Users can:
+
+- Search for Pokémon by name.
+- View specific details about each Pokémon, including its image, abilities, moves, and forms.
+
+The app uses **Next.js** for server-side rendering and routing, along with **React** and **Tailwind CSS** for the UI with **Shadcn/ui**.
+
+## Features
+
+- **Pokémon Search**: Allows you to search for Pokémon by name.
+- **Pokémon Details**: Displays details such as image, abilities, moves, and forms.
+- **Loading Spinner**: With a dynamic gradient while data is loading.
+- **Results Table**: A table to display multiple Pokémon.
+
+## Technologies
+
+- **Next.js**: React framework for server-side rendering and static site generation.
+- **React**: Library for building user interfaces.
+- **Tailwind CSS**: Design framework for quickly creating user interfaces.
+- **Shadcn/ui**: Component library for Tailwind CSS.
+- **PokéAPI**: Public API that provides information about Pokémon.
+- **Axios**: Library for making HTTP requests.
+- **React Table**: For creating interactive tables with filters and sorting.
+
+## Installation
+
+Follow these steps to get the project up and running on your local machine:
+
+1. **Clone the repository**:
+
+```npm
+git clone https://github.com/Imoa1991/next-pokemon.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Navigate to the project directory**:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd next-pokemon
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Install the dependencies**:
 
-## Learn More
+```
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Start the development server**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open your browser and visit http://localhost:3000 to view the application
