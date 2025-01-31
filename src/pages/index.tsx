@@ -1,16 +1,29 @@
 import { DataTable } from "@/components/DataTable";
 import SearchBar from "@/components/SearchBar";
 import { usePokemon } from "@/hooks/usePokemon";
+import { useMemo } from "react";
 
 export default function PokemonList() {
   const { state, columns, handleSearchChange } = usePokemon();
 
+  // We can add a useMemo hook to memoize the filteredPokemon
+  const filteredPokemon = useMemo(() => {
+    return state.pokemonList.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(state.searchQuery.toLowerCase())
+    );
+  }, [state.pokemonList, state.searchQuery]);
+
+  if (state.error) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <p className="text-red-500 font-bold">{state.error}</p>
+      </div>
+    );
+  }
+
   if (!state.pokemonList.length) {
     return null;
   }
-  const filteredPokemon = state.pokemonList.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(state.searchQuery.toLowerCase())
-  );
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen flex flex-col items-center">

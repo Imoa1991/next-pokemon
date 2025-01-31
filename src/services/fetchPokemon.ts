@@ -41,6 +41,13 @@ export const getPokemonDetail = async (
   try {
     const response = await api.get(`/pokemon/${name}`);
     let pokemon = response.data;
+    // We can add a control of status diferent to 200
+    if (response.status !== 200) {
+      if (response.status === 404) {
+        throw new Error("Pokémon no encontrado (404)");
+      }
+      throw new Error(`Error en la API: ${response.status}`);
+    }
     if (pokemon.forms && pokemon.forms.length > 0) {
       const formsResponse = await Promise.all(
         pokemon.forms.map((form: { url: string }) => api.get(form.url))

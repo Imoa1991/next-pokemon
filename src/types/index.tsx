@@ -33,12 +33,14 @@ export type PokemonAction =
       type: "SET_POKEMON_DETAILS";
       payload: { name: string; data: PokemonDetailType };
     }
-  | { type: "SET_SEARCH_QUERY"; payload: string };
+  | { type: "SET_SEARCH_QUERY"; payload: string }
+  | { type: "SET_ERROR"; payload: string };
 
 export interface PokemonState {
   pokemonList: Pokemon[];
   pokemonDetails: Record<string, PokemonDetailType>;
   searchQuery: string;
+  error: string | null;
 }
 
 export interface PokemonDetailProps {

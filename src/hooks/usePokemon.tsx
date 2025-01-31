@@ -12,6 +12,7 @@ const initialState: PokemonState = {
   pokemonList: [],
   pokemonDetails: {},
   searchQuery: "",
+  error: null,
 };
 
 function pokemonReducer(
@@ -31,6 +32,8 @@ function pokemonReducer(
       };
     case "SET_SEARCH_QUERY":
       return { ...state, searchQuery: action.payload };
+    case "SET_ERROR":
+      return { ...state, error: action.payload };
     default:
       return state;
   }
@@ -52,10 +55,15 @@ export function usePokemon() {
     });
   }, []);
 
-  const getDetails = (name: string) => {
-    getPokemonDetail(name).then((data) => {
+  const getDetails = async (name: string) => {
+    try {
+      const data = await getPokemonDetail(name);
+      // We can add a control of response api
+      if (!data) throw new Error("Detalles del Pokémon no encontrados");
       dispatch({ type: "SET_POKEMON_DETAILS", payload: { name, data } });
-    });
+    } catch (error) {
+      console.error(`Error al obtener detalles de ${name}:`, error);
+    }
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
